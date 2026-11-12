@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Little Chicken Club 🐥</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fff7fb;
+    color: #65546c;
+    font-family: 'Quicksand', sans-serif;
+    overflow-x: hidden;
+}
+
+html { scroll-behavior: smooth; }
+
+header {
+    min-height: 90vh;
+    background: linear-gradient(135deg,#e9ddff,#ffe4ef,#fff3d9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero {
+    max-width: 750px;
+    z-index: 1;
+}
+
+.small {
+    background: white;
+    padding: 10px 22px;
+    border-radius: 30px;
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(40px, 8vw, 75px);
+    color: #a17ac4;
+    line-height: 1.3;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.9;
+    margin: 20px auto;
+}
+
+button {
+    border: none;
+    background: #b18bd1;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    transform: translateY(-4px);
+    background: #9570b7;
+}
+
+.floating {
+    position: absolute;
+    font-size: 35px;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+section {
+    padding: 75px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 38px;
+    color: #aa83c7;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+    color: #917f96;
+}
+
+.members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.card {
+    background: white;
+    padding: 30px 23px;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px #b89cc51a;
+    transition: .35s;
+    border: 2px solid #f5e8f6;
+}
+
+.card:hover {
+    transform: translateY(-10px) rotate(-1deg);
+    box-shadow: 0 15px 30px #b89cc533;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 48px;
+    margin: 0 auto 18px;
+}
+
+.purple { background: #eee2ff; }
+.pink { background: #ffe2ed; }
+.yellow { background: #fff0c9; }
+.green { background: #e2f4df; }
+
+.card h2 {
+    color: #a17ac4;
+    font-family: 'Pacifico', cursive;
+    font-size: 25px;
+}
+
+.nickname {
+    color: #d58eb5;
+    font-weight: 700;
+    margin: 7px 0 15px;
+}
+
+.card p {
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.tag {
+    display: inline-block;
+    margin-top: 17px;
+    padding: 8px 12px;
+    background: #faf0fc;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.highlight {
+    background: linear-gradient(135deg,#f1e8ff,#fff0f5);
+}
+
+.quote {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 25px;
+    line-height: 2;
+    font-size: 17px;
+    box-shadow: 0 8px 25px #b89cc51a;
+}
+
+.promise {
+    max-width: 750px;
+    margin: auto;
+    line-height: 2.2;
+}
+
+.promise p {
+    margin: 12px;
+}
+
+footer {
+    background: #eee2ff;
+    padding: 40px 20px;
+    text-align: center;
+    line-height: 2;
+}
+
+footer h2 {
+    font-family: 'Pacifico', cursive;
+    color: #a17ac4;
+}
+
+.heart {
+    color: #e99aba;
+    font-size: 20px;
+}
+
+#surprise {
+    display: none;
+    margin: 25px auto 0;
+    max-width: 500px;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    line-height: 2;
+}
+
+@media(max-width:600px) {
+    header { min-height: 80vh; }
+    section { padding: 55px 17px; }
+    .section-title { font-size: 30px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <span class="floating" style="top:12%;left:10%">🎀</span>
+    <span class="floating" style="top:20%;right:12%">🐥</span>
+    <span class="floating" style="bottom:15%;left:15%">💗</span>
+    <span class="floating" style="bottom:12%;right:12%">🌷</span>
+
+    <div class="hero">
+        <div class="small">✿ OUR LITTLE CORNER OF THE WORLD ✿</div>
+        <h1>The Little Chicken Club 🐥</h1>
+        <p>
+            Four different personalities, four little hearts,
+            a million inside jokes and memories.
+            Somehow, we found each other. And honestly?
+            That's my favourite thing ever. 💗
+        </p>
+        <button onclick="document.getElementById('girls').scrollIntoView()">
+            Meet the little chickens ♡
+        </button>
+    </div>
+</header>
+
+<section id="girls">
+    <h2 class="section-title">Meet Our Girls 🎀</h2>
+    <p class="subtitle">
+        Every chicken has her own kind of magic.
+        Here's what makes our little flock so special.
+    </p>
+
+    <div class="members">
+
+        <div class="card">
+            <div class="avatar purple">💜</div>
+            <h2>Annaya</h2>
+            <div class="nickname">aka Tomato 🍅</div>
+            <p>
+                THE MAIN CHARACTER. Literally.
+                Our funny little lollipop lover who can turn
+                a blank page into a masterpiece.
+                Her sketching skills are SUPERB!
+                She's cute, hilarious and has that special
+                main-character energy.
+            </p>
+            <div class="tag">🍭 Sketching queen</div>
+        </div>
+
+        <div class="card">
+            <div class="avatar pink">🎨</div>
+            <h2>Hareem</h2>
+            <div class="nickname">aka Haleem 🍲</div>
+            <p>
+                Our anime artist!
+                Give her a pencil and she'll create
+                something adorable.
+                She loves drawing anime characters
+                and has a sporty side too.
+                Football is her thing!
+            </p>
+            <div class="tag">⚽ Anime & football girl</div>
+        </div>
+
+        <div class="card">
+            <div class="avatar yellow">🍜</div>
+            <h2>Inaya</h2>
+            <div class="nickname">aka Innu 🧸</div>
+            <p>
+                Our quiet little sweetheart.
+                She might not always be the loudest,
+                but her stories are always worth listening to.
+                A lover of cute things, noodles
+                and all things adorable.
+            </p>
+            <div class="tag">🍜 Noodle princess</div>
+        </div>
+
+        <div class="card">
+            <div class="avatar green">🦋</div>
+            <h2>Hamna</h2>
+            <div class="nickname">aka Hani 🌸</div>
+            <p>
+                The little designer behind this website!
+                Apparently, the cute one of the group.
+                Loves painting, playing badminton
+                and making little things that hopefully
+                make her favourite people smile.
+            </p>
+            <div class="tag">🏸 Little artist</div>
+        </div>
+
+    </div>
+</section>
+
+<section class="highlight">
+    <h2 class="section-title">Why I Love Our Flock 💗</h2>
+    <div class="quote">
+        One is busy sketching, one is drawing anime,
+        one is sharing her stories, and one is probably
+        making something for all of them.
+        <br>
+        <br>
+        We are not the same, and that's exactly
+        what makes us US.
+        <br>
+        <span class="heart">♡ ♡ ♡</span>
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">Our Little Friendship Promise 🌷</h2>
+    <div class="promise">
+        <p>♡ To always laugh at the most random things.</p>
+        <p>♡ To listen to each other's endless stories.</p>
+        <p>♡ To support every dream and little achievement.</p>
+        <p>♡ To make memories we'll talk about years later.</p>
+        <p>♡ To never let our little flock lose its magic.</p>
+    </div>
+</section>
+
+<section class="highlight">
+    <h2 class="section-title">A Little Message For You Three 💌</h2>
+    <p class="subtitle">
+        I made this little corner because you girls
+        deserve to know how special you are to me.
+    </p>
+
+    <button onclick="showSurprise()">
+        Open your little surprise 🎁
+    </button>
+
+    <div id="surprise">
+        Dear Tomato, Haleem and Innu,
+        <br>
+        I don't know what the future holds,
+        but I hope it always has a little space
+        for the four of us.
+        Thank you for being my favourite chaos.
+        <br>
+        I love our little flock. Forever and always.
+        <br>
+        <span style="font-size:25px">🐥💗🐥💗🐥💗🐥</span>
+        <br>
+        — Your Hani ♡
+    </div>
+</section>
+
+<footer>
+    <h2>Made with love by Hani ♡</h2>
+    <p>The Little Chicken Club · Est. Forever 🐥</p>
+    <p>Four chickens. One unbreakable little bond.</p>
+    <div style="font-size:25px">🎀 🌷 💗 🦋 🍓</div>
+</footer>
+
+<script>
+function showSurprise() {
+    const message = document.getElementById("surprise");
+    message.style.display = "block";
+    message.scrollIntoView({behavior:"smooth",block:"center"});
+}
+</script>
+
+</body>
+</html>
